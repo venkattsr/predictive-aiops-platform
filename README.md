@@ -94,7 +94,43 @@ http://127.0.0.1:5000
 Prometheus → AI Engine → ML Prediction → Kubernetes Healing → Telegram Alerts → Dashboard
 
 ---
+---
 
+# Project Screenshots
+
+## Streamlit Predictive Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+## Grafana Infrastructure Monitoring
+
+![Grafana](screenshots/grafana.png)
+
+---
+
+## MLflow Experiment Tracking
+
+![MLflow](screenshots/mlflow.png)
+
+---
+
+## Telegram Incident Alerts
+
+![Telegram](screenshots/telegram_alert.png)
+
+---
+
+## Kubernetes Self-Healing
+
+![Kubernetes](screenshots/kubernetes.png)
+
+---
+
+## Predictive AI Engine
+
+![Prediction Engine](screenshots/prediction_engine.png)
 ## Run Project
 
 ### Start Monitoring Stack

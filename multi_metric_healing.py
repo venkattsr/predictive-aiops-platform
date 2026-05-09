@@ -70,10 +70,10 @@ def analyze_root_cause(metrics):
     disk = metrics['disk']
     network = metrics['network']
 
-    if cpu > 2.0 and memory < 30:
+    if cpu > 4.0 and memory < 40:
         return "High CPU workload detected"
 
-    elif memory > 35:
+    elif memory > 70:
         return "Possible memory pressure or memory leak"
 
     elif disk > 80:
@@ -82,7 +82,7 @@ def analyze_root_cause(metrics):
     elif network > 100000:
         return "Unusual network traffic spike"
 
-    elif cpu > 2.0 and memory > 35:
+    elif cpu > 4.0 and memory > 70:
         return "Combined CPU and memory instability"
 
     else:
@@ -107,7 +107,7 @@ def predict_future_risk(cpu_history):
 
     predicted_next = recent_values[-1] + trend
 
-    risk_detected = predicted_next > 4.0
+    risk_detected = predicted_next > 5.0
 
     return risk_detected, predicted_next
 
@@ -220,7 +220,9 @@ mlflow.set_experiment(
     "Kubernetes-Predictive-AIOps"
 )
 
-with mlflow.start_run():
+with mlflow.start_run(
+    run_name="Predictive-AIOps-Run"
+):
 
     print("\n======================================")
     print("KUBERNETES PREDICTIVE AIOPS PLATFORM")
@@ -263,6 +265,8 @@ with mlflow.start_run():
                     "predicted_cpu",
                     predicted_cpu
                 )
+
+                mlflow.flush_async_logging()
 
                 current_alert_time = time.time()
 
@@ -344,15 +348,21 @@ Kubernetes Healing Triggered
                             value
                         )
 
+                        mlflow.flush_async_logging()
+
                     mlflow.log_metric(
                         "restart_count",
                         restart_count
                     )
 
+                    mlflow.flush_async_logging()
+
                     mlflow.log_metric(
                         "anomaly_detected",
                         1
                     )
+
+                    mlflow.flush_async_logging()
 
                     mlflow.log_text(
                         root_cause,
@@ -380,15 +390,21 @@ Kubernetes Healing Triggered
                             value
                         )
 
+                        mlflow.flush_async_logging()
+
                     mlflow.log_metric(
                         "restart_count",
                         restart_count
                     )
 
+                    mlflow.flush_async_logging()
+
                     mlflow.log_metric(
                         "anomaly_detected",
                         0
                     )
+
+                    mlflow.flush_async_logging()
 
             time.sleep(SLEEP_INTERVAL)
 
