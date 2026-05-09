@@ -1,4 +1,4 @@
-# Kubernetes-Native Predictive Self-Healing AIOps Platform
+# Kubernetes-Native Predictive Self-Healing AIOps Platform and MLflow Experiment Tracking
 
 An intelligent AIOps platform that performs:
 
@@ -42,6 +42,51 @@ Analyzes CPU, memory, disk, and network anomalies.
 ### Real-Time Dashboard
 Live monitoring dashboard built using Streamlit.
 
+
+---
+
+# MLflow Experiment Tracking
+
+This platform integrates MLflow for real-time experiment tracking and infrastructure telemetry logging.
+
+## Tracked Metrics
+
+- CPU utilization
+- Memory utilization
+- Disk usage
+- Network traffic
+- Predicted CPU risk
+- Anomaly detection events
+- Kubernetes restart count
+
+## MLflow Features Used
+
+- Experiment tracking
+- Metric logging
+- Root cause artifact logging
+- Predictive telemetry storage
+- Infrastructure event monitoring
+
+## Example MLflow Logs
+
+- Predictive CPU forecasting
+- Infrastructure anomaly scores
+- Kubernetes self-healing activity
+- Incident recovery tracking
+
+## MLflow UI
+
+Start MLflow UI locally:
+
+```bash
+mlflow ui
+```
+
+Open:
+
+```text
+http://127.0.0.1:5000
+```
 ---
 
 ## Architecture
